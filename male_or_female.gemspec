@@ -23,5 +23,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'colorize'
 
   spec.add_runtime_dependency 'unicode_utils'
-  #spec.add_runtime_dependency 'yaml'
 end
