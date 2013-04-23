@@ -20,7 +20,6 @@ module MaleOrFemale
       @name = prepare_name(name)
       @data = load_data(@name[0], source.to_sym)
       @result = detect
-      # add male Осип
     end
 
     def gender

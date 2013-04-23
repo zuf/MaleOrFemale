@@ -90,4 +90,109 @@ class CompiledFormalMaleTest < Test::Unit::TestCase
     assert_equal name.gender, name_should
     assert_equal name.format, FORMAT_SHOULD
   end
+
+  def test_n
+    name = MaleOrFemale::Detector.new('Нездиня', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_o
+    name = MaleOrFemale::Detector.new('Оскол', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_p
+    name = MaleOrFemale::Detector.new('Простибор', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_r
+    name = MaleOrFemale::Detector.new('Руслан', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_s
+    name = MaleOrFemale::Detector.new('Симон', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_t
+    name = MaleOrFemale::Detector.new('Таислав', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_u
+    name = MaleOrFemale::Detector.new('Устин', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_h
+    name = MaleOrFemale::Detector.new('Хоц', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_c
+    name = MaleOrFemale::Detector.new('Цукан', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_ch
+    name = MaleOrFemale::Detector.new('Чух', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_sh
+    name = MaleOrFemale::Detector.new('Шестак', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_sсh
+    name = MaleOrFemale::Detector.new('Щило', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_ae
+    name = MaleOrFemale::Detector.new('Эдуард', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_ju
+    name = MaleOrFemale::Detector.new('Юрас', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_ya
+    name = MaleOrFemale::Detector.new('Явор', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
 end

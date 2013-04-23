@@ -90,4 +90,109 @@ class SourceFormalFemaleTest < Test::Unit::TestCase
     assert_equal name.gender, name_should
     assert_equal name.format, FORMAT_SHOULD
   end
+
+  def test_n
+    name = MaleOrFemale::Detector.new('Негода')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_o
+    name = MaleOrFemale::Detector.new('Олимпиада')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_p
+    name = MaleOrFemale::Detector.new('Потвора')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_r
+    name = MaleOrFemale::Detector.new('Роза')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_s
+    name = MaleOrFemale::Detector.new('Сияна')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_t
+    name = MaleOrFemale::Detector.new('Тайна')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_u
+    name = MaleOrFemale::Detector.new('Улада')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_h
+    name = MaleOrFemale::Detector.new('Хорошава')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_c
+    name = MaleOrFemale::Detector.new('Цветана')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_ch
+    name = MaleOrFemale::Detector.new('Цветана')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_sh
+    name = MaleOrFemale::Detector.new('Шварнедь')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_sсh
+    name = MaleOrFemale::Detector.new('Щедра')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_ae
+    name = MaleOrFemale::Detector.new('Эмма')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_ju
+    name = MaleOrFemale::Detector.new('Юлиана')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_ya
+    name = MaleOrFemale::Detector.new('Ягода')
+    name_should = MaleOrFemale::FEMALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
 end
