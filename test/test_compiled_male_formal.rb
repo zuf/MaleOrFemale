@@ -76,4 +76,18 @@ class CompiledFormalMaleTest < Test::Unit::TestCase
     assert_equal name.gender, name_should
     assert_equal name.format, FORMAT_SHOULD
   end
+
+  def test_l
+    name = MaleOrFemale::Detector.new('Люборост', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
+
+  def test_m
+    name = MaleOrFemale::Detector.new('Мичура', source: :compiled)
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+    assert_equal name.format, FORMAT_SHOULD
+  end
 end
