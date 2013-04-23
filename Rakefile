@@ -21,6 +21,7 @@ require 'bundler/gem_tasks'
 require 'yaml'
 require 'unicode_utils'
 require 'colorize'
+require 'male_or_female/version'
 
 SOURCE_DIR = './lib/male_or_female/data_source'
 COMPILED_DIR = './lib/male_or_female/data_compiled'
@@ -42,7 +43,11 @@ COPYRIGHT = \
 # | pull request. Thanks.               |
 # |-------------------------------------|
 
-# File build at: #{Time.now}
+# ---
+# This File was build at: #{Time.now}
+# Was build with Gem Version: #{MaleOrFemale::VERSION}
+# ---
+
 COPY
 
 # Собирет один текстовый файл с данными об именах.
@@ -89,7 +94,7 @@ namespace :data do
           letter = UnicodeUtils.simple_upcase(file_name[0])
 
           # Check if the source yaml file has a correct markup
-          if source[letter].nil? || source[letter]['male_formal'].nil? || source[letter]['female_formal'].nil?
+          if source[letter].nil?
             puts "!!! Wrong data format at the #{char_file} !!!".red
             break
           end

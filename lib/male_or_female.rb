@@ -10,16 +10,17 @@ module MaleOrFemale
   SOURCE_DIR = './lib/male_or_female/data_source'
 
   MALE, FEMALE, UNISEX = :male, :female, :unisex
-  GENDERS = [MALE, FEMALE, UNISEX]
+  GENDERS = [FEMALE, MALE, UNISEX]
   FORMAL, INFORMAL = :formal, :informal
   FORMATS = [FORMAL, INFORMAL, UNISEX]
 
   class Detector
     def initialize(name, options = {})
       source = options[:source] || 'source'
-      @name = name
+      @name = prepare_name(name)
       @data = load_data(@name[0], source.to_sym)
       @result = detect
+      # add male Осип
     end
 
     def gender
@@ -57,9 +58,13 @@ module MaleOrFemale
       # ["male_formal", "Август Авдей Аверкий ... "]
       @data[@name[0]].each do |sex|
         next if sex[1].nil?
-        result = sex[0] if sex[1].include? @name
+        result = sex[0] if sex[1] =~ /(\s|^)(#{@name})(\s|$)/i
       end
       result
+    end
+
+    def prepare_name(name)
+      name.strip.downcase.capitalize
     end
   end
 end
