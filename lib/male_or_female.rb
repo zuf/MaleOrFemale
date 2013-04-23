@@ -12,7 +12,7 @@ module MaleOrFemale
   MALE, FEMALE, UNISEX = :male, :female, :unisex
   GENDERS = [FEMALE, MALE, UNISEX]
   FORMAL, INFORMAL = :formal, :informal
-  FORMATS = [FORMAL, INFORMAL, UNISEX]
+  FORMATS = [INFORMAL, UNISEX, FORMAL]
 
   class Detector
     def initialize(name, options = {})
@@ -24,13 +24,13 @@ module MaleOrFemale
 
     def gender
       GENDERS.each do |gender|
-        return gender if @result =~ /(#{gender})/i
+        return gender if @result =~ /(#{gender})[_]/i
       end
     end
 
     def format
       FORMATS.each do |format|
-        return format if @result =~ /(#{format})/i
+        return format if @result =~ /[_](#{format})/i
       end
     end
 

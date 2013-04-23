@@ -2,7 +2,13 @@
   male_formal:
     Юрас Юрий Юша Ювеналий Юлиан Юлий
 
+  male_informal:
+    Юра
+
   female_formal:
     Юлия Юлиана
+
+  female_informal:
+    Юля
 
   unisex_formal:
