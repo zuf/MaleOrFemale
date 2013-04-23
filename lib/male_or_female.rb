@@ -6,18 +6,19 @@ require 'yaml'
 
 module MaleOrFemale
 
+  COMPILED_DIR = './lib/male_or_female/data_compiled'
   SOURCE_DIR = './lib/male_or_female/data_source'
 
   MALE, FEMALE, UNISEX = :male, :female, :unisex
   GENDERS = [MALE, FEMALE, UNISEX]
-
   FORMAL, INFORMAL = :formal, :informal
   FORMATS = [FORMAL, INFORMAL, UNISEX]
 
   class Detector
-    def initialize(name)
+    def initialize(name, options = {})
+      source = options[:source] || 'source'
       @name = name
-      @data ||= load_data(@name[0])
+      @data = load_data(@name[0], source.to_sym)
       @result = detect
     end
 
@@ -33,12 +34,18 @@ module MaleOrFemale
       end
     end
 
-    # >>>>>>>>>>> PRIVATE <<<<<<<<<<
-    #
+    # PRIVATE
     private
 
-    def load_data(letter)
-      YAML.load_file( File.expand_path("#{SOURCE_DIR}/ru/#{letter.downcase}.yaml") )
+    def load_data(letter, source = :source)
+      case source
+        when :source
+          YAML.load_file(File.open("#{SOURCE_DIR}/ru/#{letter.downcase}.yaml"))
+        when :compiled
+          YAML.load_file(File.open("#{COMPILED_DIR}/ru.yaml"))
+        else
+          raise ArgumentError.new("Invalid source option: #{source}")
+      end
     end
 
     # Проверет имя (возьмет первую букву от имени, проверит значение в
