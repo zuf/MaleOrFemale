@@ -1,8 +1,10 @@
 ![MaleOrFemale](https://raw.github.com/shlima/MaleOrFemale/master/doc/logo.png)
 
-MaleOrFemale - gem для определения пола человека (male, female, unisex) по его имени. Гем также определяет тип имени (официальное или неформальное).
+_MaleOrFemale_ - gem для определения пола человека (male, female, unisex) по его имени. Гем также определяет тип имени (официальное или неформальное).
 
 Демонстрация работы: http://typograf.herokuapp.com/gender
+
+**На данный момент гем определяет только русскоязычные имена**
 
 ## Использование
 
