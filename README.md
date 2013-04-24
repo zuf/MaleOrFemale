@@ -1,8 +1,6 @@
 ![MaleOrFemale](https://raw.github.com/shlima/MaleOrFemale/master/doc/logo.png)
 
-# MaleOrFemale
-
-TODO: Write a gem description
+MaleOrFemale - gem для определения пола человека (male, female, unisex) по имени. Гем также определяет тип имени (официальное или неформальное).
 
 ## Installation
 
