@@ -6,8 +6,13 @@ require 'yaml'
 
 module MaleOrFemale
 
-  COMPILED_DIR = './lib/male_or_female/data_compiled'
-  SOURCE_DIR = './lib/male_or_female/data_source'
+  #COMPILED_DIR = './lib/male_or_female/data_compiled'
+  #SOURCE_DIR = './lib/male_or_female/data_source'
+
+  COMPILED_DIR = File.expand_path('../male_or_female/data_compiled', __FILE__)
+  SOURCE_DIR =  File.expand_path('../male_or_female/data_source', __FILE__)
+
+  UNKNOWN = :unknown
 
   MALE, FEMALE, UNISEX = :male, :female, :unisex
   GENDERS = [FEMALE, MALE, UNISEX]
@@ -23,15 +28,15 @@ module MaleOrFemale
     end
 
     def gender
-      GENDERS.each do |gender|
-        return gender if @result =~ /(#{gender})[_]/i
-      end
+      result = nil
+      GENDERS.each { |gender| result = gender if @result =~ /(\s|^)(#{gender})[_]/i  }
+      result.nil? ? UNKNOWN : result
     end
 
     def format
-      FORMATS.each do |format|
-        return format if @result =~ /[_](#{format})/i
-      end
+      result = nil
+      FORMATS.each { |format| return format if @result =~ /[_](#{format})/i }
+      result.nil? ? UNKNOWN : result
     end
 
     # PRIVATE
@@ -40,7 +45,9 @@ module MaleOrFemale
     def load_data(letter, source = :source)
       case source
         when :source
-          YAML.load_file(File.open("#{SOURCE_DIR}/ru/#{letter.downcase}.yaml"))
+          source = "#{SOURCE_DIR}/ru/#{UnicodeUtils.downcase(letter)}.yaml"
+          return nil unless File.exist?(source)
+          YAML.load_file(File.open(source))
         when :compiled
           YAML.load_file(File.open("#{COMPILED_DIR}/ru.yaml"))
         else
@@ -53,7 +60,10 @@ module MaleOrFemale
     #
     # Вернет: 'male_formal', 'female_formal', 'unisex' etc.
     def detect
-      result = []
+      result = nil
+
+      return result if @data.nil? || @data[@name[0]].nil?
+
       # ["male_formal", "Август Авдей Аверкий ... "]
       @data[@name[0]].each do |sex|
         next if sex[1].nil?
@@ -63,7 +73,11 @@ module MaleOrFemale
     end
 
     def prepare_name(name)
-      name.strip.downcase.capitalize
+      name = UnicodeUtils.downcase(name).strip
+      name[0] = UnicodeUtils.upcase(name[0])
+      name
+    rescue
+      raise ArgumentError.new('Name should be a string')
     end
   end
 end
