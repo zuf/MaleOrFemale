@@ -15,7 +15,7 @@ class FemaleInformalTest < Test::Unit::TestCase
   end
 
   def test_l
-    name = MaleOrFemale::Detector.new('Люба', source: :compiled)
+    name = MaleOrFemale::Detector.new('валя')
     name_should = MaleOrFemale::FEMALE
     assert_equal name.gender, name_should
     assert_equal name.format, FORMAT_SHOULD

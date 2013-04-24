@@ -6,9 +6,6 @@ require 'yaml'
 
 module MaleOrFemale
 
-  #COMPILED_DIR = './lib/male_or_female/data_compiled'
-  #SOURCE_DIR = './lib/male_or_female/data_source'
-
   COMPILED_DIR = File.expand_path('../male_or_female/data_compiled', __FILE__)
   SOURCE_DIR =  File.expand_path('../male_or_female/data_source', __FILE__)
 
@@ -21,7 +18,7 @@ module MaleOrFemale
 
   class Detector
     def initialize(name, options = {})
-      source = options[:source] || 'source'
+      source = options[:source] || 'compiled'
       @name = prepare_name(name)
       @data = load_data(@name[0], source.to_sym)
       @result = detect
