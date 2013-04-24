@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = MaleOrFemale::VERSION
   spec.authors       = 'Alex Shilov'
   spec.email         = 'sashapashamasha@gmail.com'
-  spec.description   = 'Гем для распознования пола по имени человека, а также формального/неформального формата имени'
+  spec.description   = 'Гем для распознования пола по имени человека, а также формального/неформального формата имени. http://typograf.herokuapp.com/gender'
   spec.summary       = 'What the gender by name. Russian names supported only.'
   spec.homepage      = 'https://github.com/shlima/MaleOrFemale'
   spec.license       = 'MIT'
